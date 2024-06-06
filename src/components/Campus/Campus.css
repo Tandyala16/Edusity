@@ -1,0 +1,77 @@
+/* Campus.css */
+.campus-section {
+    padding: 80px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+  }
+  
+  .campus-heading {
+    font-size: 3.5em;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .campus-subtitle {
+    font-size: 1.5em;
+    font-weight: 500;
+    color: #666;
+    margin-bottom: 50px;
+  }
+  
+  .campus-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+  }
+  
+  .campus-photo-container {
+    flex: 1 1 250px;
+    max-width: 250px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .campus-photo-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .campus-photo-container:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .campus-photo {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .explore-button {
+    margin-top: 40px;
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: 500;
+    color: #fff;
+    background-color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .explore-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .explore-button:active {
+    transform: scale(0.95);
+  }
+  

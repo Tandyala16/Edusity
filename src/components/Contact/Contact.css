@@ -1,0 +1,254 @@
+/* Contact Section Styles */
+.contact-section {
+  padding: 60px 20px;
+  background-color: #f7f7f7;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.contact-heading {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #002147;
+}
+
+.contact-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.contact-info,
+.contact-form {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.contact-info:hover,
+.contact-form:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info h3 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: #ff7f50;
+}
+
+.contact-info p,
+.contact-details a {
+  color: #333;
+}
+
+.contact-details {
+  list-style: none;
+  padding: 0;
+}
+
+.contact-details li {
+  margin-bottom: 10px;
+}
+
+.contact-details a {
+  text-decoration: none;
+  color: #002147;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s;
+}
+
+.contact-details a:hover {
+  color: #ff7f50;
+}
+
+.contact-details a i {
+  margin-right: 10px;
+}
+
+.contact-form .form-group {
+  margin-bottom: 20px;
+}
+
+.contact-form .form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #002147;
+}
+
+.contact-form .form-group input,
+.contact-form .form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: #f7f7f7;
+  transition: border-color 0.3s;
+}
+
+.contact-form .form-group input:focus,
+.contact-form .form-group textarea:focus {
+  border-color: #ff7f50;
+  outline: none;
+}
+
+.contact-form .form-group textarea {
+  resize: vertical;
+}
+
+.contact-form .submit-button {
+  background-color: #ff7f50;
+  border: none;
+  color: #fff;
+  padding: 15px 30px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: background-color 0.3s, transform 0.3s;
+  display: inline-flex;
+  align-items: center;
+}
+
+.contact-form .submit-button i {
+  margin-left: 10px;
+}
+
+.contact-form .submit-button:hover {
+  background-color: #ffb6c1;
+  transform: translateY(-3px);
+}
+
+.response-message {
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #28a745;
+  text-align: center;
+  display: none;
+}
+
+.response-message.show {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .contact-content {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .contact-info,
+  .contact-form {
+    width: 100%;
+    max-width: none;
+    margin-bottom: 30px;
+  }
+}
+
+/* Additional Styles for Consistency with Theme */
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #f7f7f7;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #ff7f50;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #ffb6c1;
+}
+
+button {
+  font-family: 'Open Sans', sans-serif;
+}
+
+input, textarea {
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: #002147;
+  padding: 20px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navbar-nav {
+  display: flex;
+  gap: 20px;
+}
+
+.navbar-nav a {
+  color: #fff;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.navbar-nav a:hover {
+  color: #ff7f50;
+}
+
+.navbar-nav .active {
+  color: #ff7f50;
+}
+
+/* Hero Section Styles */
+.hero-section {
+  background-color: #002147;
+  color: #fff;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 40px;
+}
+
+.hero-button {
+  background-color: #ff7f50;
+  color: #fff;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.hero-button:hover {
+  background-color: #ffb6c1;
+  transform: translateY(-3px);
+}

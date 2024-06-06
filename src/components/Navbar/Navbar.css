@@ -1,0 +1,145 @@
+/* Navbar Styles */
+.navbar {
+  width: 100%;
+  background: linear-gradient(135deg, #2c3e50, #4c6ef5);
+  color: #ecf0f1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: fixed; /* Change from relative to fixed */
+  top: 0; /* Ensure it sticks to the top */
+  left: 0; /* Ensure it spans across the entire width */
+  z-index: 1000; /* Ensure it appears above other elements */
+}
+
+.navbar-container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-logo {
+  height: 50px;
+}
+
+.navbar-menu {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-item a {
+  color: #ecf0f1;
+  text-transform: uppercase;
+  font-weight: 700;
+  transition: color 0.3s ease, transform 0.3s ease, background 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+
+.navbar-item a:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.navbar-button a {
+  padding: 0.75rem 2rem;
+  background: linear-gradient(135deg, #e74c3c, #f39c12);
+  border-radius: 30px;
+  color: #fff;
+  transition: background 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-button a:hover {
+  background: linear-gradient(135deg, #c0392b, #e67e22);
+  transform: scale(1.1);
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 1024px) {
+  .navbar-menu {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-menu {
+    flex-direction: column;
+    gap: 1rem;
+    display: none;
+    width: 100%;
+    background: #2c3e50;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    padding: 1rem 0;
+    z-index: 999;
+  }
+
+  .navbar-menu.active {
+    display: flex;
+  }
+
+  .navbar-item {
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar-button {
+    width: 100%;
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  .hamburger {
+    display: block;
+    cursor: pointer;
+    padding: 1rem;
+    background: transparent;
+    border: none;
+    color: #ecf0f1;
+    font-size: 1.5rem;
+    z-index: 1001;
+  }
+
+  .hamburger .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    background-color: #ecf0f1;
+  }
+}
+
+.hamburger {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .hamburger .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    background-color: #ecf0f1;
+  }
+}
