@@ -1,77 +1,97 @@
-/* Campus.css */
 .campus-section {
-    padding: 80px 20px;
-    background-color: #f9f9f9;
-    text-align: center;
+  margin: 80px auto;
+  width: 90%;
+  text-align: center;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.campus-photo {
+  width: 100%;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  display: block;
+  object-fit: cover;
+  height: 300px; /* Uniform height */
+}
+
+.campus-photo:hover {
+  transform: scale(1.03) translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  z-index: 2;
+}
+
+/* Dark Mode Hover Glow */
+body.dark-theme .campus-photo:hover {
+  box-shadow: 0 20px 40px rgba(0, 198, 255, 0.15); /* Blue glow */
+}
+
+.btn.dark-btn {
+  background: var(--primary);
+  color: #fff;
+  margin-top: 20px;
+}
+
+.btn.dark-btn:hover {
+  background: var(--primary-dark);
+}
+
+/* Lightbox Styles - Premium */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95); /* Darker backdrop */
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+  backdrop-filter: blur(10px); /* Blur background */
+  animation: fadeIn 0.3s ease-out;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 50px rgba(0,0,0,0.5);
+  animation: scaleUp 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .gallery {
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
   }
-  
-  .campus-heading {
-    font-size: 3.5em;
-    font-weight: 700;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  .campus-subtitle {
-    font-size: 1.5em;
-    font-weight: 500;
-    color: #666;
-    margin-bottom: 50px;
-  }
-  
-  .campus-gallery {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-    margin-top: 40px;
-  }
-  
-  .campus-photo-container {
-    flex: 1 1 250px;
-    max-width: 250px;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .campus-photo-container img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-  
-  .campus-photo-container:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  }
-  
   .campus-photo {
-    width: 100%;
-    height: auto;
-    display: block;
+    height: 200px;
   }
-  
-  .explore-button {
-    margin-top: 40px;
-    padding: 10px 20px;
-    font-size: 1em;
-    font-weight: 500;
-    color: #fff;
-    background-color: #333;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+@media (max-width: 480px) {
+  .gallery {
+    grid-template-columns: 1fr;
   }
-  
-  .explore-button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  }
-  
-  .explore-button:active {
-    transform: scale(0.95);
-  }
-  
+}

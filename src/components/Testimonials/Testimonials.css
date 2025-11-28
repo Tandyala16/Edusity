@@ -1,119 +1,124 @@
-.testimonials-section {
-  padding: 100px 20px;
-  background-color: #f7f9fc;
-  text-align: center;
-}
-
-.testimonials-title {
-  font-size: 3rem;
-  font-weight: 700;
-  color: #2b2d42;
-  margin-bottom: 20px;
-}
-
-.testimonials-subtitle {
-  font-size: 1.5rem;
-  color: #8d99ae;
-  margin-bottom: 60px;
-}
-
-.testimonials-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.testimonials {
+  margin: 80px auto;
+  padding: 0 80px;
   position: relative;
-  max-width: 1200px;
-  margin: auto;
-  background-color: #edf2f4;
-  border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  padding: 50px;
+}
+
+.next-btn, .back-btn {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  padding: 15px;
+  width: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  background: var(--primary);
+  transition: 0.3s;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.back-btn {
+  right: auto;
+  left: 0;
+}
+
+.next-btn:hover, .back-btn:hover {
+  background: var(--secondary);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.4); /* Gold glow */
+}
+
+.slider {
   overflow: hidden;
 }
 
-.testimonial {
+.slider ul {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  width: 100%;
-  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-  opacity: 1;
+  width: 200%;
+  overflow-x: hidden;
+  transition: 0.5s cubic-bezier(0.25, 1, 0.5, 1); /* Smoother slide */
 }
 
-.testimonial-content {
+.slider ul li {
+  list-style: none;
+  width: 50%;
   padding: 20px;
-  transition: opacity 0.5s ease-in-out;
 }
 
-.testimonial img {
-  width: 150px;
-  height: 150px;
+.slide {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+  padding: 40px;
+  border-radius: 10px;
+  color: var(--text-color);
+  line-height: 1.4;
+  background: var(--white);
+  transition: 0.3s;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* Dark Mode Override */
+body.dark-theme .slide {
+  background: rgba(255, 255, 255, 0.03); /* Glassy dark card */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  border: 1px solid rgba(255,255,255,0.05);
+  backdrop-filter: blur(5px);
+}
+
+body.dark-theme .slide:hover {
+  border-color: var(--secondary);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
+}
+
+.slide img {
+  width: 65px;
   border-radius: 50%;
-  margin-bottom: 20px; /* Reduced margin */
-  object-fit: cover;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  margin-right: 10px;
+  border: 4px solid var(--primary);
 }
 
-.testimonial-info {
-  text-align: center; /* Center the name and text */
+body.dark-theme .slide img {
+  border-color: var(--secondary);
 }
 
-.testimonial-name { 
-  font-size: 1rem;
-  color: #8d99ae;
-  margin-bottom: 10px; /* Added margin */
-  font-weight: bold; /* Added bold font weight */
+.user-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 15px;
 }
 
-.testimonial-country { 
-  font-size: 0.9rem; /* Reduced font size */
-  color: #8d99ae;
-  font-style: italic; /* Added italic style */
+.user-info h3 {
+  color: var(--primary);
+  margin-bottom: 5px;
 }
 
-.testimonial p {
-  font-size: 1.25rem;
-  color: #2b2d42;
-  max-width: 700px;
-  line-height: 1.6;
-  margin: 0;
+body.dark-theme .user-info h3 {
+  color: var(--secondary);
 }
 
-.nav-button {
-  background: #8d99ae;
-  border: none;
-  font-size: 2.5rem;
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #fff;
-  padding: 15px;
-  border-radius: 50%;
-  z-index: 1;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: background 0.3s, color 0.3s;
+.user-info span {
+  color: var(--text-color);
+  opacity: 0.7;
 }
 
-.nav-button:hover {
-  background: #2b2d42;
+.slide p {
+  color: var(--text-color);
+  opacity: 0.8;
 }
 
-.nav-button.prev {
-  left: -30px;
-}
-
-.nav-button.next {
-  right: -30px;
-}
-
-.testimonial.fade-out {
-  opacity: 0;
-  transform: translateX(-100%);
-}
-
-.testimonial.fade-in {
-  opacity: 1;
-  transform: translateX(0);
+@media (max-width: 850px) {
+  .testimonials {
+    padding: 0 40px;
+  }
+  .next-btn, .back-btn {
+    padding: 10px;
+    width: 35px;
+  }
+  .testimonials ul li {
+    padding: 10px;
+  }
+  .slide {
+    padding: 20px;
+  }
 }

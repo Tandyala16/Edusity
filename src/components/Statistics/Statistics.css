@@ -1,0 +1,99 @@
+.statistics {
+  margin: 80px auto;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.stat-card {
+  flex: 1;
+  min-width: 200px;
+  text-align: center;
+  padding: 40px 20px;
+  border-radius: 15px;
+  background: var(--white);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid rgba(0,0,0,0.03);
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  border-color: var(--secondary);
+}
+
+.stat-icon {
+  font-size: 40px;
+  color: var(--primary);
+  margin-bottom: 20px;
+  opacity: 0.8;
+  transition: 0.3s;
+}
+
+.stat-card:hover .stat-icon {
+  color: var(--secondary);
+  transform: scale(1.1);
+}
+
+.stat-card h3 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.stat-card p {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-color);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.7;
+}
+
+/* Dark Theme Overrides */
+body.dark-theme .stat-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+body.dark-theme .stat-card:hover {
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.15); /* Gold glow */
+  border-color: var(--secondary);
+}
+
+body.dark-theme .stat-card h3 {
+  background: linear-gradient(135deg, #fff, var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+body.dark-theme .stat-icon {
+  color: var(--secondary);
+}
+
+body.dark-theme .stat-card p {
+  color: #e0e0e0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .statistics {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .stat-card {
+    width: 100%;
+  }
+}

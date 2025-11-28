@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import './Contact.css'; 
+import './Contact.css';
+import { motion } from 'framer-motion';
 
 function Contact() {
   const [name, setName] = useState('');
@@ -17,7 +18,7 @@ function Contact() {
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
-          'Authorization': 'f1740742-f405-4f9f-93f7-614dce4f2214' 
+          'Authorization': 'f1740742-f405-4f9f-93f7-614dce4f2214'
         },
         body: JSON.stringify({
           name,
@@ -46,11 +47,20 @@ function Contact() {
   };
 
   return (
-    <section className="contact-section">
+    <motion.section
+      className="contact-section"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
+    >
       <div className="container">
-        <h2 className="contact-heading">Get in Touch</h2>
         <div className="contact-content">
-          <div className="contact-info">
+          <motion.div
+            className="contact-info"
+            initial={{ x: -50, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.6 }}
+          >
             <h3>Connect with Us</h3>
             <p>
               We'd love to hear from you! Whether you have a question, a project
@@ -75,8 +85,14 @@ function Contact() {
                 </a>
               </li>
             </ul>
-          </div>
-          <form className="contact-form" onSubmit={handleSubmit}>
+          </motion.div>
+          <motion.form
+            className="contact-form"
+            onSubmit={handleSubmit}
+            initial={{ x: 50, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.6 }}
+          >
             <div className="form-group">
               <label htmlFor="name">Your Name:</label>
               <input
@@ -119,10 +135,10 @@ function Contact() {
             {/* Display success or error messages */}
             {/* {successMessage && <p className="success-message">{successMessage}</p>}
             {error && <p className="error-message">{error}</p>} */}
-            </form>
+          </motion.form>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
 

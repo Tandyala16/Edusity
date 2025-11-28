@@ -1,14 +1,72 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-font-smoothing: antialiased; /* Premium font rendering */
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  /* Light Theme */
+  --primary: #212EA0;
+  --primary-dark: #000F38;
+  --secondary: #FFD700;
+  --accent: #00C6FF;
+  --light: #F5F5F5;
+  --dark: #212121;
+  --text-color: #333;
+  --white: #fff;
+  --shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  --glass: rgba(255, 255, 255, 0.9);
+  
   font-family: "Outfit", sans-serif;
 }
 
+/* Dark Theme Variables */
+body.dark-theme {
+  --primary: #3A4ADB; /* Lighter blue for dark mode */
+  --primary-dark: #000820; /* Deepest blue */
+  --light: #121212; /* Dark background */
+}
+
+body.dark-theme ::selection {
+  background: var(--secondary);
+  color: #000;
+}
+
 body {
-  background: #f5f5f5;
+  background: var(--light);
+  color: var(--text-color);
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  width: 100%;
+  transition: background 0.3s, color 0.3s;
+  line-height: 1.6; /* Better readability */
+}
+
+/* Global Dark Mode Text Enforcement */
+body.dark-theme p, 
+body.dark-theme h1, 
+body.dark-theme h2, 
+body.dark-theme h3, 
+body.dark-theme h4, 
+body.dark-theme h5, 
+body.dark-theme h6, 
+body.dark-theme span, 
+body.dark-theme li,
+body.dark-theme div {
+  color: var(--text-color);
+}
+
+/* Exceptions for specific colored elements */
+body.dark-theme .title {
+  color: var(--accent);
+}
+
+body.dark-theme .sub-title {
+  color: var(--secondary);
 }
 
 a {
@@ -16,4 +74,68 @@ a {
   color: inherit;
   line-height: 1;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Utility Classes */
+.btn {
+  background: var(--white);
+  color: var(--dark);
+  padding: 14px 25px;
+  font-size: 16px;
+  border-radius: 30px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: 0.3s;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.btn.dark-btn {
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.title {
+  text-align: center;
+  color: var(--primary);
+  font-size: 32px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 70px 0 30px;
+  position: relative;
+}
+
+.sub-title {
+  text-align: center;
+  color: var(--primary-dark);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+/* Dark Mode Button Overrides */
+body.dark-theme .btn {
+  color: var(--text-color);
+}
+
+body.dark-theme .btn.dark-btn {
+  color: #fff;
 }

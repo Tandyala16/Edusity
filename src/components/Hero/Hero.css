@@ -1,77 +1,187 @@
 .hero {
-  position: relative;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
+  position: relative;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  color: var(--white);
   overflow: hidden;
-  padding-top: 80px; /* Add padding to the top */
+  /* Fallback background */
+  background: #000;
 }
 
-.hero-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+/* Cinematic Background Animation using Pseudo-element */
+.hero::before {
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(8, 0, 58, 0.7), rgba(8, 0, 58, 0.8)), url('../../assets/hero.png');
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  animation: heroZoom 20s infinite alternate ease-in-out;
+}
+
+/* Spotlight Overlay */
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.8) 100%);
   z-index: 1;
 }
 
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 2;
+@keyframes heroZoom {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.1); }
 }
 
-.hero-content {
-  position: relative;
-  z-index: 3;
+.hero-text {
   text-align: center;
-  color: #fff;
-  padding: 0 2rem;
+  max-width: 900px; /* Wider for more impact */
+  padding: 0 20px;
+  position: relative;
+  z-index: 2; /* Above the overlays */
 }
 
-.hero-title {
-  font-size: 4rem;
-  margin-bottom: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+.hero-text h1 {
+  font-size: 72px; /* Massive, confident text */
+  font-weight: 800;
+  margin-bottom: 25px;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  text-transform: capitalize;
+  color: #ffffff !important; /* Force white text always */
+  text-shadow: 0 4px 20px rgba(0,0,0,0.6); /* Strong shadow for contrast */
 }
 
-.hero-subtitle {
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
+.hero-text p {
+  margin: 0 auto 40px;
+  font-size: 22px;
+  line-height: 1.6;
+  max-width: 700px;
+  opacity: 0.95;
+  font-weight: 300;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 
-.hero-button {
-  display: inline-block;
-  padding: 1rem 2rem;
-  background: linear-gradient(135deg, #e74c3c, #f39c12);
-  color: #fff;
-  text-transform: uppercase;
-  font-weight: 700;
-  border-radius: 30px;
-  text-decoration: none;
-  transition: background 0.3s ease, transform 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+.hero-text .btn {
+  padding: 18px 40px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 50px;
+  background: var(--white);
+  color: var(--dark);
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy transition */
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
 }
 
-.hero-button:hover {
-  background: linear-gradient(135deg, #c0392b, #e67e22);
-  transform: scale(1.1);
+.hero-text .btn img {
+  width: 20px;
+  transition: transform 0.3s;
 }
 
-.hero-button .arrow {
-  margin-left: 0.5rem;
-  transition: margin-left 0.3s ease;
+.hero-text .btn:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+  background: var(--secondary); /* Gold on hover */
+  color: var(--primary-dark);
 }
 
-.hero-button:hover .arrow {
-  margin-left: 1rem;
+.hero-text .btn:hover img {
+  transform: translateX(8px);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 850px) {
+  .hero-text h1 {
+    font-size: 48px;
+  }
+  .hero-text p {
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+  .hero-text .btn {
+    padding: 15px 30px;
+  }
+}
+
+/* =========================================
+   DARK THEME PREMIUM OVERRIDES
+   ========================================= */
+body.dark-theme .hero::before {
+  /* Deep Space Gradient */
+  background: linear-gradient(135deg, rgba(2, 6, 23, 0.9) 0%, rgba(15, 23, 42, 0.8) 100%), url('../../assets/hero.png');
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.8) contrast(1.2); /* Cinematic contrast */
+}
+
+body.dark-theme .hero::after {
+  /* Subtle blue glow from bottom */
+  background: radial-gradient(circle at bottom, rgba(56, 189, 248, 0.15) 0%, rgba(0,0,0,0) 60%);
+}
+
+body.dark-theme .hero-text h1 {
+  /* Just add a premium glow in dark mode, keep it white */
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.4), 0 4px 10px rgba(0,0,0,0.8);
+}
+
+body.dark-theme .hero-text p {
+  color: #e0e0e0;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+  font-weight: 400;
+}
+
+body.dark-theme .hero-text .btn {
+  background: var(--secondary); /* Gold button pops against dark */
+  color: var(--primary-dark);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3); /* Gold glow */
+}
+
+body.dark-theme .hero-text .btn:hover {
+  background: #fff;
+  color: var(--primary-dark);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.5); /* White glow on hover */
+}
+
+.hero-text {
+  text-align: center;
+  max-width: 800px;
+}
+
+.hero-text h1 {
+  font-size: 60px;
+  font-weight: 600;
+}
+
+.hero-text p {
+  margin: 10px auto 20px;
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+.hero-text .btn img {
+  width: 20px;
+  margin-left: 10px;
+}
+
+@media (max-width: 850px) {
+  .hero-text h1 {
+    font-size: 40px;
+  }
+  .hero-text p {
+    font-size: 16px;
+    margin: 15px auto 30px;
+  }
 }

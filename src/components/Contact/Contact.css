@@ -1,20 +1,7 @@
-/* Contact Section Styles */
 .contact-section {
-  padding: 60px 20px;
-  background-color: #f7f7f7;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
+  margin: 80px auto;
   padding: 0 20px;
-}
-
-.contact-heading {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 40px;
-  color: #002147;
+  max-width: 1200px;
 }
 
 .contact-content {
@@ -22,6 +9,7 @@
   justify-content: space-between;
   gap: 40px;
   flex-wrap: wrap;
+  margin: 0 auto;
 }
 
 .contact-info,
@@ -31,7 +19,7 @@
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 400px;
+  max-width: 48%; /* Adjusted for better side-by-side layout */
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
@@ -158,97 +146,4 @@
     max-width: none;
     margin-bottom: 30px;
   }
-}
-
-/* Additional Styles for Consistency with Theme */
-body {
-  font-family: 'Open Sans', sans-serif;
-  background-color: #f7f7f7;
-  color: #333;
-  margin: 0;
-  padding: 0;
-}
-
-a {
-  color: #ff7f50;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-a:hover {
-  color: #ffb6c1;
-}
-
-button {
-  font-family: 'Open Sans', sans-serif;
-}
-
-input, textarea {
-  font-family: 'Open Sans', sans-serif;
-}
-
-/* Navbar Styles */
-.navbar {
-  background-color: #002147;
-  padding: 20px 0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.navbar-brand {
-  color: #fff;
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.navbar-nav {
-  display: flex;
-  gap: 20px;
-}
-
-.navbar-nav a {
-  color: #fff;
-  font-size: 1rem;
-  transition: color 0.3s;
-}
-
-.navbar-nav a:hover {
-  color: #ff7f50;
-}
-
-.navbar-nav .active {
-  color: #ff7f50;
-}
-
-/* Hero Section Styles */
-.hero-section {
-  background-color: #002147;
-  color: #fff;
-  padding: 80px 20px;
-  text-align: center;
-}
-
-.hero-title {
-  font-size: 3rem;
-  margin-bottom: 20px;
-}
-
-.hero-subtitle {
-  font-size: 1.5rem;
-  margin-bottom: 40px;
-}
-
-.hero-button {
-  background-color: #ff7f50;
-  color: #fff;
-  padding: 15px 30px;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.3s;
-}
-
-.hero-button:hover {
-  background-color: #ffb6c1;
-  transform: translateY(-3px);
 }
